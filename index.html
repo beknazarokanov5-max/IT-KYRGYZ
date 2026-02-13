@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ky">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IT ДҮЙНӨСҮ | Профессионал сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <nav>
+        <h2 class="logo">IT KYRGYZ</h2>
+        <ul>
+            <li><a href="https://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85_%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9">Тарых</a></li>
+            <li><a href="https://t.me/+RLnYtJ70PmVlZjAy">Интернет</a></li>
+            <li><a href="https://chat.whatsapp.com/DKGOcrz19cOKOZ5aYy180Y">Адистиктер</a></li>
+            <li><a href="#salary">Айлык</a></li>
+            <li><a href="https://t.me/+RLnYtJ70PmVlZjAy">Кантип баштоо?</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+
+        <header>
+            <h1>IT жана Программалоо Дүйнөсү</h1>
+            <p>Толук энциклопедиялык маалымат</p>
+        </header>
+
+        <section id="history">
+            <h2>IT тарыхы (1830–Азыркы учур)</h2>
+            <p>
+                1830-жылдары Чарльз Бэббидж аналитикалык машинаны иштеп чыккан.
+                1843-жылы Ада Лавлейс биринчи алгоритм жазган.
+                1945-жылы ENIAC аттуу биринчи электрондук компьютер ишке кирген.
+                1957-жылы Fortran тили түзүлгөн.
+                1970-жылы C тили жаралган.
+                1991-жылы интернет жалпы коомго ачык болгон.
+                2000-жылдардан баштап мобилдик жана жасалма интеллект доору башталган.
+            </p>
+        </section>
+
+        <section id="internet">
+            <h2>Интернеттин тарыхы</h2>
+            <p>
+                1969-жылы ARPANET долбоору ишке кирген.
+                Бул интернеттин башталышы болгон.
+                1991-жылы World Wide Web түзүлгөн.
+                Бүгүн дүйнөдө миллиарддаган адамдар интернет колдонот.
+                Интернет IT тармагын глобалдык деңгээлге чыгарган.
+            </p>
+        </section>
+
+        <section id="jobs">
+            <h2>IT адистиктер</h2>
+            <p>
+                Frontend Developer – сайттын көрүнүшүн жасайт.
+                Backend Developer – сервер бөлүгүн жазат.
+                Fullstack Developer – эки бөлүгүн тең билет.
+                Game Developer – оюн түзөт.
+                Mobile Developer – Android/iOS тиркемелерин жазат.
+                Cybersecurity – хакерлерден коргойт.
+                AI Engineer – жасалма интеллект түзөт.
+                Data Scientist – чоң маалыматтарды анализ кылат.
+                DevOps Engineer – сервер жана инфраструктураны башкарат.
+            </p>
+        </section>
+
+        <section id="salary">
+            <h2>IT адистердин айлыгы</h2>
+            <p>
+                Дүйнөдө IT адистер эң жогорку айлык алган кесиптердин бири.
+                Орточо айлык:
+                Junior – 800$–1500$
+                Middle – 2000$–4000$
+                Senior – 5000$ жана андан жогору.
+                Айлык өлкөгө жана тажрыйбага жараша өзгөрөт.
+            </p>
+        </section>
+
+        <section id="become">
+            <h2>Кантип программист болсом болот?</h2>
+            <p>
+               <p>1️⃣ Логиканы жана алгоритмдерди үйрөн.</p> 
+              <p> 2️⃣ Python же JavaScriptтен башта.</p> 
+               <p> 3️⃣ Күн сайын код жаз.</p>
+               <p></p>4️⃣ GitHub профили ач. 
+                <p>5️⃣ Реалдуу проекттерди жаса.</p>
+                <p>6️⃣ Англис тилин үйрөн.</p>
+                <p>7️⃣ Сабырдуу бол – 6 айдан 2 жылга чейин убакыт керек.</p>
+            </p>
+        </section>
+
+        <footer>
+            <p>© 2026 IT KYRGYZ | Профессионал билим берүү сайты</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const letters = "0101{}[]<>/\\=+-*АЛГОРИТМCODEDATAIT";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) drops[x] = 1;
+
+        function draw() {
+            ctx.fillStyle = "rgba(0,0,0,0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 60);
+    </script>
+
+</body>
+
+</html>
